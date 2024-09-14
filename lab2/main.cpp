@@ -33,6 +33,42 @@ void fillTwoDimensionalArray(int** arr, const int N, const int M)
     }
 }
 
+void fillSpiral(int** arr, const int rows, const int cols)
+{
+    int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
+    int value = 1;
+
+    while (top <= bottom && left <= right) {
+        
+        for (int i = left; i <= right; ++i) {
+            arr[top][i] = value++;
+        }
+        top++;
+
+        
+        for (int i = top; i <= bottom; ++i) {
+            arr[i][right] = value++;
+        }
+        right--;
+
+        
+        if (top <= bottom) {
+            for (int i = right; i >= left; --i) {
+                arr[bottom][i] = value++;
+            }
+            bottom--;
+        }
+
+        
+        if (left <= right) {
+            for (int i = bottom; i >= top; --i) {
+                arr[i][left] = value++;
+            }
+            left++;
+        }
+    }
+}
+
 int main() {
     int N;
     cin >> N;
@@ -50,7 +86,7 @@ int main() {
     {
         for (int j = 0; j < N; j++)
         {
-            cout << arr[i][j] << ' ';
+            cout << arr[i][j] << '\t';
         }
         cout << endl;
     }
@@ -61,7 +97,18 @@ int main() {
     {
         for (int j = 0; j < N; j++)
         {
-            cout << arr[i][j] << ' ';
+            cout << arr[i][j] << '\t';
+        }
+        cout << endl;
+    }
+    
+    cout << "######" << endl;
+    fillSpiral(arr, N, N);    
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << arr[i][j] << '\t';
         }
         cout << endl;
     }
