@@ -2,25 +2,26 @@
 
 using namespace std;
 
-void combSort(int* data, int N)
+void reverseOrderTwoDimensionalArray(int** arr, const int N, const int M)
 {
-	double factor = 1.25;
-	int step = N - 1;
-    
-	while (step >= 1)
-	{
-		for (int i = 0; i + step < N; i++)
-		{
-			if (data[i] > data[i + step])
-			{
-				swap(data[i], data[i + step]);
-			}
-		}
-		step /= factor;
-	}
+    for (int i = 0; i < (int) N / 2; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            swap(arr[i][j], arr[N - i - 1][M - j - 1]);
+        }
+    }
+
+    if (N % 2 == 1)
+    {
+        for (int i = 0; i < (int) M / 2; i++)
+        {
+            swap(arr[(int) N / 2][M - i - 1], arr[(int) N / 2][i]);
+        }
+    }
 }
 
-void fillTwoDimensionalArray(int** arr, int N, int M)
+void fillTwoDimensionalArray(int** arr, const int N, const int M)
 {
     int x = 1;
     for (int i = 0; i < N; i++)
@@ -44,6 +45,18 @@ int main() {
 
     fillTwoDimensionalArray(arr, N, N);
 
+    cout << "Initial array" << endl;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << arr[i][j] << ' ';
+        }
+        cout << endl;
+    }
+    
+    cout << "######" << endl;
+    reverseOrderTwoDimensionalArray(arr, N, N);
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
