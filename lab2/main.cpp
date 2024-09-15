@@ -2,6 +2,13 @@
 
 using namespace std;
 
+/*
+* Создание обратного порядка у двумерного массива
+*
+* @param arr    указатель на массив
+* @param rows   количество строк
+* @param cols   количество столбцов
+*/
 void reverseOrderArray(int** arr, const int rows, const int cols)
 {
     for (int i = 0; i < (int) rows / 2; i++)
@@ -21,6 +28,13 @@ void reverseOrderArray(int** arr, const int rows, const int cols)
     }
 }
 
+/*
+* Заполнение двумерного массива значениями
+*
+* @param arr    указатель на массив
+* @param rows   количество строк
+* @param cols   количество столбцов
+*/
 void fillArray(int** arr, const int rows, const int cols)
 {
     int x = 1;
@@ -33,6 +47,13 @@ void fillArray(int** arr, const int rows, const int cols)
     }
 }
 
+/*
+* Заполнение двумерного массива значениями по спирали
+*
+* @param arr    указатель на массив
+* @param rows   количество строк
+* @param cols   количество столбцов
+*/
 void fillSpiral(int** arr, const int rows, const int cols)
 {
     int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
@@ -69,6 +90,13 @@ void fillSpiral(int** arr, const int rows, const int cols)
     }
 }
 
+/*
+* Вывод двумерного массива
+*
+* @param arr    указатель на массив
+* @param rows   количество строк
+* @param cols   количество столбцов
+*/
 void printArray(int** arr, const int rows, const int cols)
 {
     for (int i = 0; i < rows; i++)
