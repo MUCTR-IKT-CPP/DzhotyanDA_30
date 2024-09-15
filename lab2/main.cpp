@@ -2,31 +2,31 @@
 
 using namespace std;
 
-void reverseOrderTwoDimensionalArray(int** arr, const int N, const int M)
+void reverseOrderArray(int** arr, const int rows, const int cols)
 {
-    for (int i = 0; i < (int) N / 2; i++)
+    for (int i = 0; i < (int) rows / 2; i++)
     {
-        for (int j = 0; j < M; j++)
+        for (int j = 0; j < cols; j++)
         {
-            swap(arr[i][j], arr[N - i - 1][M - j - 1]);
+            swap(arr[i][j], arr[rows - i - 1][cols - j - 1]);
         }
     }
 
-    if (N % 2 == 1)
+    if (rows % 2 == 1)
     {
-        for (int i = 0; i < (int) M / 2; i++)
+        for (int i = 0; i < (int) cols / 2; i++)
         {
-            swap(arr[(int) N / 2][M - i - 1], arr[(int) N / 2][i]);
+            swap(arr[(int) rows / 2][cols - i - 1], arr[(int) rows / 2][i]);
         }
     }
 }
 
-void fillTwoDimensionalArray(int** arr, const int N, const int M)
+void fillArray(int** arr, const int rows, const int cols)
 {
     int x = 1;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < M; j++)
+        for (int j = 0; j < cols; j++)
         {
             arr[i][j] = x++;
         }
@@ -69,9 +69,23 @@ void fillSpiral(int** arr, const int rows, const int cols)
     }
 }
 
+void printArray(int** arr, const int rows, const int cols)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << arr[i][j] << '\t';
+        }
+        cout << endl;
+    }
+}
+
 int main() {
     int N;
+    cout << "Введите число: ";
     cin >> N;
+    cout << endl;
 
     int** arr = new int*[N];
     for (int i = 0; i < N; i++)
@@ -79,38 +93,44 @@ int main() {
         arr[i] = new int[N];
     }
 
-    fillTwoDimensionalArray(arr, N, N);
+    fillArray(arr, N, N);
 
     cout << "Initial array" << endl;
-    for (int i = 0; i < N; i++)
+    printArray(arr, N, N);
+
+    int choice;
+    while (true)
     {
-        for (int j = 0; j < N; j++)
+        cout << "\n===== Меню =====\n";
+        cout << "1. Восстановить прямой порядок элементов\n";
+        cout << "2. Сделать обратный порядок элементов\n";
+        cout << "3. Сделать порядок элементов таким, что бы все значения закручивались по часовой стрелке спиралью от элемента [0, 0] \n";
+        cout << "0. Выйти\n";
+        cout << "================\n";
+        cout << "Выберите действие: ";
+        
+        cin >> choice;
+
+        switch (choice)
         {
-            cout << arr[i][j] << '\t';
+        case 1:
+            fillArray(arr, N, N);
+            printArray(arr, N, N);
+            break;
+        case 2:
+            reverseOrderArray(arr, N, N);
+            printArray(arr, N, N);
+            break;
+        case 3:
+            fillSpiral(arr, N, N);
+            printArray(arr, N, N);
+            break;
+        case 0:
+            cout << "Выход из программы" << endl;
+            return 0;
+        default:
+            break;
         }
-        cout << endl;
-    }
-    
-    cout << "######" << endl;
-    reverseOrderTwoDimensionalArray(arr, N, N);
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            cout << arr[i][j] << '\t';
-        }
-        cout << endl;
-    }
-    
-    cout << "######" << endl;
-    fillSpiral(arr, N, N);    
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            cout << arr[i][j] << '\t';
-        }
-        cout << endl;
     }
 
     return 0;
