@@ -155,6 +155,13 @@ int main() {
             break;
         case 0:
             cout << "Выход из программы" << endl;
+            
+            for (int i = 0; i < N; i++)
+            {
+                delete[] arr[i];
+            }
+            delete[] arr;
+            
             return 0;
         default:
             break;
