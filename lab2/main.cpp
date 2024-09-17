@@ -109,6 +109,90 @@ void printArray(int** arr, const int rows, const int cols)
     }
 }
 
+/*
+* Размещение элементов вдоль побочной диагонали
+* 
+* @param arr    указатель на массив
+* @param N      количество строк и столбцов
+*/
+void fillByMainDiagonal(int** arr, int N)
+{
+    int value = 1;
+    for(int j = N - 1; j >= 0; j--)
+    {
+        int count = N - j - 1;
+        int i = 0;
+        int temp_j = j;        
+        arr[i][temp_j] = value++;
+
+        while(count != 0)
+        {
+            i++;
+            temp_j++;
+            arr[i][temp_j] = value++;                       
+            count--;                     
+        }        
+    }
+
+    for(int i = 1; i < N; i++)
+    {
+        int count = (N-1)-i;
+        int j = 0;
+        int temp_i = i;
+        arr[temp_i][j] = value++;        
+
+        while(count != 0)
+        {
+            temp_i++;
+            j++;        
+            arr[temp_i][j] = value++;
+            count--;                     
+        }
+    }
+}
+
+/*
+* Размещение элементов вдоль побочной диагонали
+* 
+* @param arr    указатель на массив
+* @param N      количество строк и стоблцов
+*/
+void fillBySideDiagonal(int** arr, int N)
+{
+    int value = 1;
+    for(int j = 0; j < N; j++)
+    {
+        int count = j;
+        int i = 0;
+        int temp_j = j;
+        arr[i][temp_j] = value++;
+
+        while(count != 0)
+        {
+            i++;
+            temp_j--;        
+            arr[i][temp_j] = value++;
+            count--;                     
+        }
+    }
+
+    for(int i = 1; i < N; i++)
+    {
+        int count = (N - 1) - i;
+        int j = N - 1;
+        int temp_i = i;
+        arr[temp_i][j] = value++;        
+
+        while(count != 0)
+        {
+            temp_i++;
+            j--;        
+            arr[temp_i][j] = value++;
+            count--;                     
+        }
+    }
+}
+
 int main() {
     int N;
     cout << "Введите число: ";
@@ -133,6 +217,8 @@ int main() {
         cout << "1. Восстановить прямой порядок элементов\n";
         cout << "2. Сделать обратный порядок элементов\n";
         cout << "3. Сделать порядок элементов таким, что бы все значения закручивались по часовой стрелке спиралью от элемента [0, 0] \n";
+        cout << "4. Сделать порядок элементов вдоль главной диагонали\n";
+        cout << "5. Сделать порядок элементов вдоль побочной диагонали\n";
         cout << "0. Выйти\n";
         cout << "================\n";
         cout << "Выберите действие: ";
@@ -151,6 +237,14 @@ int main() {
             break;
         case 3:
             fillSpiral(arr, N, N);
+            printArray(arr, N, N);
+            break;
+        case 4:
+            fillByMainDiagonal(arr, N);
+            printArray(arr, N, N);
+            break;
+        case 5:
+            fillBySideDiagonal(arr, N);
             printArray(arr, N, N);
             break;
         case 0:
