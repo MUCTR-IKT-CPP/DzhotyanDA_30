@@ -31,6 +31,7 @@ void handleMenu(vector<Worker> workers)
             cin >> choice;
 
             vector<Worker> selected_workers;
+            vector<vector<Worker>> groups;
             string input_full_name;
             int minYear, maxYear;
 
@@ -66,7 +67,8 @@ void handleMenu(vector<Worker> workers)
 
                         break;
                   case 3:
-                        distributeWorkersByGenderAndAge(workers);
+                        groups = distributeWorkersByGenderAndAge(workers);
+                        printGroupsWorkers(groups);
                         break;
                   case 4:
                         selected_workers = sortWorkersByAge(workers);

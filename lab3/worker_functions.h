@@ -98,7 +98,7 @@ vector<Worker> makeSliceWorkersByAge(vector<Worker> workers, int minYear, int ma
  * 
  * @param   workers     вектор работников
  */
-void distributeWorkersByGenderAndAge(vector<Worker> workers)
+vector<vector<Worker>> distributeWorkersByGenderAndAge(vector<Worker> workers)
 {
       vector<vector<Worker>> groups;
       for (int i = 0; i < workers.size(); i++)
@@ -121,27 +121,36 @@ void distributeWorkersByGenderAndAge(vector<Worker> workers)
                   groups.push_back(newGroup);
             }
       }
-
-      for (int i = 0; i < groups.size(); i++)
-      {
-            printf("Группа %d:\n", i + 1);
-            for (int j = 0; j < groups[i].size(); j++)
-            {
-                  printf("Работник %d -> ФИО: %s, Пол: %s, Год рождения: %d\n", j + 1, workers[j].full_name.c_str(), genderToString(workers[j].gender).c_str(), workers[j].birth_date.year);
-            }
-      }
+      return groups;
 }
 
 /**
  * Вывод списка работников
  * 
- * @param workers вектор работников
+ * @param   workers     вектор работников
  */
 void printWorkers(vector<Worker> workers)
 {
       for (int i = 0; i < workers.size(); i++)
       {
             printf("Работник %d -> ФИО: %s, Пол: %s, Дата рождения: %d.%d.%d\n", i + 1, workers[i].full_name.c_str(), genderToString(workers[i].gender).c_str(), workers[i].birth_date.day, workers[i].birth_date.month, workers[i].birth_date.year);
+      }
+}
+
+/**
+ * Вывод групп работников
+ * 
+ * @param   groups      группы работников
+*/
+void printGroupsWorkers(vector<vector<Worker>> groups)
+{
+      for (int i = 0; i < groups.size(); i++)
+      {
+            printf("Группа %d:\n", i + 1);
+            for (int j = 0; j < groups[i].size(); j++)
+            {
+                  printf("\tРаботник %d -> ФИО: %s, Пол: %s, Год рождения: %d\n", j + 1, groups[i][j].full_name.c_str(), genderToString(groups[i][j].gender).c_str(), groups[i][j].birth_date.year);
+            }
       }
 }
 
