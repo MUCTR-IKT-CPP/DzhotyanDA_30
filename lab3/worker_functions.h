@@ -8,14 +8,28 @@
 
 using namespace std;
 
-string genderToString(Gender gender);
+// Перегрузка оператора < для сравнения объектов BirthDate
+bool operator < (const BirthDate& a, const BirthDate& b) {
+  return std::tie(a.year, a.month, a.day) < std::tie(b.year, b.month, b.day);
+}
 
 /**
- * Выводит информацию о работнике по ФИО
+ * Переводит значение Gender в строку
  *
- * @param   *workers            массив работников
- * @param   number_workers      количество работников
- * @param   full_name           ФИО работника
+ * @param gender   объект Gender
+ * @return         строка о поле
+*/
+string genderToString(Gender gender)
+{
+      return gender == Gender::male ? "МУЖ" : "ЖЕН";
+}
+
+/**
+ * Нахождение информацию о работнике по ФИО (частично)
+ *
+ * @param   workers             вектор работников
+ * @param   input_full_name     ФИО работника
+ * @return                      вектор найденных работников
  */
 vector<Worker> findWorkerByFullNameSubstring(vector<Worker> workers, string input_full_name)
 {
@@ -47,7 +61,7 @@ vector<Worker> sortWorkersByAge(vector<Worker> workers)
       {
             for (int i = 0; i + step < size; i++)
             {
-                  if (workers[i].birth_date.year < workers[i + step].birth_date.year)
+                  if (workers[i].birth_date < workers[i + step].birth_date)
                   {
                         swap(workers[i], workers[i + step]);
                   }
@@ -59,12 +73,12 @@ vector<Worker> sortWorkersByAge(vector<Worker> workers)
 }
 
 /**
- * Формирует срез работников из вектора по году рождения (больше или меньше)
+ * Формирование среза работников из вектора по году рождения (больше или меньше)
  *
  * @param    workers     вектор работников
  * @param    minYear     начальный год
  * @param    maxYear     конечный год
- * @return               возвращает вектор работников
+ * @return               сформированный вектор работников
  */
 vector<Worker> makeSliceWorkersByAge(vector<Worker> workers, int minYear, int maxYear)
 {
@@ -89,16 +103,22 @@ void distributeWorkersByGenderAndAge(vector<Worker> workers)
       vector<vector<Worker>> groups;
       for (int i = 0; i < workers.size(); i++)
       {
+            bool addedToGroup = false;
             for (int j = 0; j < groups.size(); j++)
             {
-                  if (groups[j].size() == 0)
+                  if (abs(groups[j][0].birth_date.year - workers[i].birth_date.year) <= 5 && groups[j][0].gender == workers[i].gender)
                   {
                         groups[j].push_back(workers[i]);
+                        addedToGroup = true;
+                        break;
                   }
-                  else if (groups[j][0].birth_date.year - workers[i].birth_date.year <= 5 && groups[j][0].gender == workers[i].gender)
-                  {
-                              groups[j].push_back(workers[i]);
-                  }
+            }
+
+            if (!addedToGroup)
+            {
+                  vector<Worker> newGroup;
+                  newGroup.push_back(workers[i]);
+                  groups.push_back(newGroup);
             }
       }
 
@@ -120,18 +140,9 @@ void distributeWorkersByGenderAndAge(vector<Worker> workers)
 void printWorkers(vector<Worker> workers)
 {
       for (int i = 0; i < workers.size(); i++)
-            printf("Работник %d -> ФИО: %s, Пол: %s, Год рождения: %d\n", i + 1, workers[i].full_name.c_str(), genderToString(workers[i].gender).c_str(), workers[i].birth_date.year);
-}
-
-/**
- * Переводит значение Gender в строку
- *
- * @param gender   объект Gender
- * @return         строка о поле
-*/
-string genderToString(Gender gender)
-{
-      return gender == Gender::male ? "МУЖ" : "ЖЕН";
+      {
+            printf("Работник %d -> ФИО: %s, Пол: %s, Дата рождения: %d.%d.%d\n", i + 1, workers[i].full_name.c_str(), genderToString(workers[i].gender).c_str(), workers[i].birth_date.day, workers[i].birth_date.month, workers[i].birth_date.year);
+      }
 }
 
 #endif // WORKER_FUNCTIONS_H

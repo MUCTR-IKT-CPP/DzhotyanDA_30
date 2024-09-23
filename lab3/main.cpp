@@ -13,7 +13,7 @@ using namespace std;
  * Отображение пользовательского меню
  *
  * @param workers вектор работников
-*/
+ */
 void handleMenu(vector<Worker> workers)
 {
       int choice;

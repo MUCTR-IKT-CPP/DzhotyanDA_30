@@ -5,16 +5,18 @@
 
 enum class Gender { male, female };
 
-struct birthDate
+struct BirthDate
 {
     int year;
+    int month;
+    int day;
 };
 
 struct Worker
 {
     std::string full_name;
     Gender gender;
-    birthDate birth_date;
+    BirthDate birth_date;
 };
 
 #endif // WORKER_STRUCTS_H
