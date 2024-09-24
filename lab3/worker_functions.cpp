@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <vector>
 #include <tuple>
+#include <map>
 #include "worker_structs.cpp"
 #include "worker_functions.h"
 
@@ -97,27 +98,20 @@ vector<Worker> makeSliceWorkersByAge(vector<Worker> workers, int minYear, int ma
  * 
  * @param   workers     вектор работников
  */
-vector<vector<Worker>> distributeWorkersByGenderAndAge(vector<Worker> workers)
+vector<vector<int>> distributeWorkersByGenderAndAge(vector<Worker> workers)
 {
-      vector<vector<Worker>> groups;
+      vector<vector<int>> groups(11, vector<int> (2, 0));
       for (vector<Worker>::size_type i = 0; i < workers.size(); i++)
       {
-            bool addedToGroup = false;
-            for (vector<Worker>::size_type j = 0; j < groups.size(); j++)
+            int age = 2024 - workers[i].birth_date.year;
+            int group_index = (age - 18) / 5;
+            if (workers[i].gender == Gender::male)
             {
-                  if (abs(groups[j][0].birth_date.year - workers[i].birth_date.year) <= 5 && groups[j][0].gender == workers[i].gender)
-                  {
-                        groups[j].push_back(workers[i]);
-                        addedToGroup = true;
-                        break;
-                  }
+                  groups[group_index][0]++;
             }
-
-            if (!addedToGroup)
+            else
             {
-                  vector<Worker> newGroup;
-                  newGroup.push_back(workers[i]);
-                  groups.push_back(newGroup);
+                  groups[group_index][1]++;
             }
       }
       return groups;
@@ -141,14 +135,20 @@ void printWorkers(vector<Worker> workers)
  * 
  * @param   groups      группы работников
 */
-void printGroupsWorkers(vector<vector<Worker>> groups)
+void printGroupsWorkers(vector<vector<int>> groups)
 {
-      for (vector<Worker>::size_type i = 0; i < groups.size(); i++)
+      for (size_t i = 0; i < groups.size(); ++i)
       {
-            printf("Группа %zu:\n", i + 1);
-            for (vector<Worker>::size_type j = 0; j < groups[i].size(); j++)
+            int age_start = 18 + i * 5;
+            int age_end = age_start + 5;
+            if (i == groups.size() - 1) 
             {
-                  printf("\tРаботник %zu -> ФИО: %s, Пол: %s, Год рождения: %d\n", j + 1, groups[i][j].full_name.c_str(), genderToString(groups[i][j].gender).c_str(), groups[i][j].birth_date.year);
+                  printf("Возрастная группа %d лет и старше:\n", age_start);
             }
+            else
+            {
+                  printf("Возрастная группа %d-%d лет:\n", age_start, age_end);
+            }
+            printf("\tМужчины: %d, Женщины: %d\n", groups[i][0], groups[i][1]);
       }
 }

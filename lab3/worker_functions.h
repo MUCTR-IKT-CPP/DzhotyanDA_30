@@ -15,10 +15,10 @@ vector<Worker> sortWorkersByAge(vector<Worker> workers);
 
 vector<Worker> makeSliceWorkersByAge(vector<Worker> workers, int minYear, int maxYear);
 
-vector<vector<Worker>> distributeWorkersByGenderAndAge(vector<Worker> workers);
+vector<vector<int>> distributeWorkersByGenderAndAge(vector<Worker> workers);
 
 void printWorkers(vector<Worker> workers);
 
-void printGroupsWorkers(vector<vector<Worker>> groups);
+void printGroupsWorkers(vector<vector<int>> groups);
 
 #endif // WORKER_FUNCTIONS_H

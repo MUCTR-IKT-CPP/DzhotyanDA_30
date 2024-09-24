@@ -14,7 +14,7 @@ using namespace std;
  *
  * @param workers вектор работников
  */
-void handleMenu(vector<Worker> workers)
+int handleMenu(vector<Worker> workers)
 {
       int choice;
       while (true)
@@ -31,7 +31,7 @@ void handleMenu(vector<Worker> workers)
             cin >> choice;
 
             vector<Worker> selected_workers;
-            vector<vector<Worker>> groups;
+            vector<vector<int>> groups;
             string input_full_name;
             int minYear, maxYear;
 
@@ -75,7 +75,7 @@ void handleMenu(vector<Worker> workers)
                         printWorkers(selected_workers);
                         break;
                   case 0:
-                        break;
+                        return 0;
                   default:
                         break;
             }
