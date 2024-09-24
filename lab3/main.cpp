@@ -5,7 +5,7 @@
 #include <string>
 #include "worker_generators.h"
 #include "worker_functions.h"
-#include "worker_structs.h"
+#include "worker_structs.cpp"
 
 using namespace std;
 
