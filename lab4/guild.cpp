@@ -8,6 +8,14 @@
 using namespace std;
 
 /**
+ * Генерация идеальной группы наемников
+ */
+void Guild::generatePerfectGroup()
+{
+    
+}
+
+/**
  * Генерация наемников
  * 
  * @param N требуемое количество наемников
@@ -28,20 +36,25 @@ void Guild::fillRandomGroup(int N)
     highPowerSwordsman->power = 120;
     mercenaries.push_back(highPowerSwordsman);
 
-    for (int i = 0; i < N - 2; i++)
+    // Гарантированно добавляем одного мага
+    Wizard* wizard = new Wizard();
+    int distanceChoice = rand() % 2;
+    if (distanceChoice == 1)
+    {
+        wizard->distance = 30;
+    }
+    mercenaries.push_back(wizard);
+
+    while ((int)mercenaries.size() < N)
     {
         int randomChoice = rand() % 2;
-        
+
         if (randomChoice == 0)
         {
             Wizard* wizard = new Wizard();
             int distanceChoice = rand() % 2;
             
-            if (distanceChoice == 0)
-            {
-                mercenaries.push_back(wizard);
-            }
-            else
+            if (distanceChoice == 1)
             {
                 wizard->distance = 30;
             }
@@ -53,11 +66,7 @@ void Guild::fillRandomGroup(int N)
             Bowman* bowman = new Bowman();
             int distanceChoice = rand() % 2;
             
-            if (distanceChoice == 0)
-            {
-                mercenaries.push_back(bowman);
-            }
-            else
+            if (distanceChoice == 1)
             {
                 bowman->distance = 30;
             }
@@ -72,7 +81,7 @@ void Guild::fillRandomGroup(int N)
 */
 void Guild::viewMercenaries()
 {
-    cout << "Список наемников в гильдии" << endl;
+    cout << "===================== Список наемников в гильдии =====================" << endl;
     for (size_t i = 0; i < mercenaries.size(); i++)
     {
         cout << i + 1 << ". ";

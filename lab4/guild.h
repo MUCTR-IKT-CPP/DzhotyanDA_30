@@ -10,6 +10,7 @@ class Guild
     public:
         vector<Mercenary> mercenaries;
 
+        void generatePerfectGroup();
         void fillRandomGroup(int N);
         void viewMercenaries();
         void addToGroup(vector<Mercenary>& group);
