@@ -9,8 +9,10 @@ using namespace std;
 
 /**
  * Генерация идеальной группы наемников
+ * 
+ * @param maxCost предельная стоимость группы
  */
-void Guild::generatePerfectGroup()
+void Guild::generatePerfectGroup(int maxCost)
 {
     
 }

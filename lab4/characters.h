@@ -4,16 +4,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Swordsman
 {
     public:
-        int power = 80;
-        int durability = 100;
-        int distance = 5;
+        int power = 60 + rand() % 81;
+        int durability = 90 + rand() % 111;
+        int distance = 3 + rand() % 6;
         int cost = 30;
         string type = "Swordsman";
+
+        int getPower() { return power; }
 };
 
 class Wizard
@@ -30,7 +34,7 @@ class Bowman
 {
     public:
         int power = 100;
-        int durability = 120;
+        int durability = 80;
         int distance = 20;
         int cost = 40;
         string type = "Bowman";

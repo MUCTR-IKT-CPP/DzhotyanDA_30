@@ -21,7 +21,7 @@ void printGroup(vector<Mercenary> group)
     for (size_t i = 0; i < group.size(); i++)
     {
         group[i].display();
-    }   
+    }
 }
 
 /**
@@ -36,10 +36,11 @@ int handleMenu()
     while (true)
     {
         cout << "\n===== Меню =====\n";
-        cout << "1. Сгенерировать наемников\n";
+        cout << "1. Сгенерировать группу наемников\n";
         cout << "2. Вывести наемников\n";
         cout << "3. Добавить в группу\n";
         cout << "4. Вывести группу\n";
+        cout << "5. Сгенерировать идеальную группу наемников\n";
         cout << "0. Выйти\n";
         cout << "================\n";
         cout << "Выберите действие: ";
@@ -71,6 +72,8 @@ int handleMenu()
         case 4:
             printGroup(group);
             break;
+        case 5:
+            guild.generatePerfectGroup(300);
         case 0:
             return 0;
         default:
