@@ -42,6 +42,42 @@ public:
     }
 
     /**
+     * Перегрузка оператора [] для константных объектов
+     * 
+     * @param   int         индекс получаемого элемента вектора
+     * @return  const T&    значение элемента под заданным индексом
+     */
+    const T& operator[](int index) const
+    {
+        if (size <= static_cast<size_t>(index) || index < 0)
+        {
+            throw std::out_of_range("Index out of range");
+        }
+        return data[index];
+    }
+
+    /**
+     * Перегрузка оператора вывода в поток через дружественную функцию
+     */
+    friend std::ostream& operator<<(std::ostream &os, const Vector<T>& vector)
+    {
+        os << "Vector {";
+
+        for (size_t i = 0; i < vector.GetSize(); i++)
+        {
+            os << vector[i];
+
+            if (i < vector.GetSize() - 1)
+            {
+                os << ", ";
+            }
+        }
+
+        os << "}";
+        return os;
+    }
+
+    /**
      * Создание вектора размера n
      */
     void Create(size_t n) 
@@ -56,7 +92,7 @@ public:
      * 
      * @return   bool   булевое значение, является ли вектор пустым
      */
-    bool IsEmpty() 
+    bool IsEmpty() const
     {
         return size == 0;
     }
@@ -66,7 +102,7 @@ public:
      * 
      * @return   size_t   размер вектора
      */
-    size_t GetSize() 
+    size_t GetSize() const
     {
         return size;
     }
@@ -76,7 +112,7 @@ public:
      * 
      * @return   sizet   емкость вектора
      */
-    size_t GetCapacity()
+    size_t GetCapacity() const
     {
         return capacity;
     }

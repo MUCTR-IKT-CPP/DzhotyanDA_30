@@ -16,7 +16,7 @@ template<typename T> int HandleMenuVector(Vector<T>& vector)
     while (true)
     {
         cout << "\n===== Меню =====\n";
-        cout << "1. Получить элементы вектора\n";
+        cout << "1. Получить элементы вектора (for)\n";
         cout << "2. Получить элемент вектора по индексу\n";
         cout << "3. Добавление нового элемента в конец вектора\n";
         cout << "4. Проверить, пустой ли вектор\n";
@@ -24,6 +24,7 @@ template<typename T> int HandleMenuVector(Vector<T>& vector)
         cout << "6. Изменить размер вектора\n";
         cout << "7. Удалить последний элемент вектора\n";
         cout << "8. Получить емкость вектора\n";
+        cout << "9. Получить элементы вектора (перегрузка <<)\n";
         cout << "0. Выйти\n";
         cout << "================\n";
         cout << "Выберите действие: ";
@@ -66,6 +67,9 @@ template<typename T> int HandleMenuVector(Vector<T>& vector)
                 break;
             case 8:
                 cout << "Емкость вектора: " << vector.GetCapacity() << endl;
+                break;
+            case 9:
+                cout << vector << endl;
                 break;
             case 0:
                 return 0;
