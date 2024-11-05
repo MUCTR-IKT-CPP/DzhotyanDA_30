@@ -19,8 +19,6 @@ private:
     static const std::string _avalaibleTypesPatrons[AVALAIBLE_PATRONS_COUNT]; 
 
 public:
-    std::queue<Patron*> GetMagazine();
-
     bool IsEmpty();
 
     int GetCapacity();
@@ -31,6 +29,11 @@ public:
 
     void AddPatron(Patron* p);
 
+    /**
+     * Генерация патрона
+     * 
+     * @return  Patron*  Ссылка на объект патрон
+     */
     static Patron* GeneratePatron()
     {
         int x = rand() % AVALAIBLE_PATRONS_COUNT;
@@ -48,30 +51,6 @@ public:
         }
 
         return nullptr;
-    }
-
-    static Patron** GeneratePatrons() 
-    {
-        Patron** patrons = new Patron*[_capacity];
-        
-        for (int i = 0; i < _capacity; i++) {
-            
-            int x = rand() % AVALAIBLE_PATRONS_COUNT;
-
-            if (_avalaibleTypesPatrons[x] == "Subsonic") {
-                patrons[i] = new SubsonicPatron();
-            }
-
-            if (_avalaibleTypesPatrons[x] == "Supersonic") {
-                patrons[i] = new SupersonicPatron();
-            }
-
-            if (_avalaibleTypesPatrons[x] == "Tracing") {
-                patrons[i] = new TracingPatron();
-            }
-        }
-
-        return patrons;
     }
 };
 

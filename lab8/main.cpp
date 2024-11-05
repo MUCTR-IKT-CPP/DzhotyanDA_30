@@ -13,10 +13,13 @@ int handleMenu()
 {
     int choice;
 
+    Gun gun = Gun();
+
     while (true)
     {
         cout << "\n===== Меню =====\n";
         cout << "1. Симмуляция процесса стрельбы из оружия\n";
+        cout << "2. Получить статистику по стрельбе\n";
         cout << "0. Выйти\n";
         cout << "================\n";
         cout << "Выберите действие: ";
@@ -26,15 +29,11 @@ int handleMenu()
         switch (choice)
         {
         case 1:
-        {
-            // Генерация патрон
-            Patron** patrons = Magazine().GeneratePatrons();
-            
-            Gun gun = Gun(patrons);
             gun.SimulatingShootingProcess();
-
             break;
-        }
+        case 2:
+            gun.GetStats();
+            break;
         case 0:
             return 0;
         default:

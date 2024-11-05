@@ -10,11 +10,11 @@ private:
     int _maxPatronCountInBox = MAX_PATRON_COUNT_IN_BOX;
 
 public:
+    int patronsCount;
+
     PatronBox() {
         patronsCount = MIN_PATRON_COUNT_IN_BOX + (rand() % MAX_PATRON_COUNT_IN_BOX);
     }
-
-    int patronsCount;
 };
 
 #endif // PATRONBOX_H
