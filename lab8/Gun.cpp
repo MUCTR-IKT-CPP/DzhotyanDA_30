@@ -41,9 +41,9 @@ void Gun::Shoot()
 /**
  * Перезарядка
  */
-void Gun::Reload()
+void Gun::Reload(int numberOfPatrons)
 {
-    while (_magazine.GetSize() < _magazine.GetCapacity())
+    while (_magazine.GetSize() < numberOfPatrons)
     {
         Patron* patron = Magazine().GeneratePatron();
         _magazine.AddPatron(patron);
@@ -64,17 +64,17 @@ void Gun::SimulatingShootingProcess()
 
     cout << "В ящике " << patronBox.patronsCount << " патрон" << endl;
 
-    while (patronBox.patronsCount > 0 || !_magazine.IsEmpty())
+    while (patronBox.patronsCount > 0) // продолжаем, пока есть патроны в ящике
     {
         if (_magazine.IsEmpty())
         {
-            if (patronBox.patronsCount > 0)
+            int availableSpace = _magazine.GetCapacity() - _magazine.GetSize(); // вычисляем свободное место в магазине
+            int reloadCount = std::min(patronBox.patronsCount, availableSpace); // выбираем минимальное из свободного места и патронов в ящике
+
+            if (reloadCount > 0)
             {
-                Reload();
-                
-                if (patronBox.patronsCount < _magazine.GetCapacity())
-                {
-                } 
+                Reload(reloadCount);
+                patronBox.patronsCount -= reloadCount;
             }
             else
             {
@@ -82,14 +82,6 @@ void Gun::SimulatingShootingProcess()
             }
         }
         else
-        {
-            Shoot();
-        }
-    }
-
-    if (!_magazine.IsEmpty())
-    {
-        while (_magazine.GetSize() > 0)
         {
             Shoot();
         }

@@ -26,18 +26,34 @@ private:
 
     void Shoot();
 
-    void Reload();
+    void Reload(int numberOfPatrons);
 
 public:
     Gun() {
         _magazine = Magazine();
-        Reload();
+        Reload(_magazine.GetCapacity());
         _gunReloadedFirstTime = false;
     }
 
     void SimulatingShootingProcess();
 
     void GetStats();
+
+    /**
+     * Перегрузка оператора вывода в поток через дружественную функцию
+     */
+    friend std::ostream& operator<<(std::ostream &os, const Gun& gun)
+    {
+        os << "Gun statistics:\n";
+        os << "Number of patrons fired: " << gun._numberOfPatronsFired << "\n";
+        os << "Number of magazines reloaded: " << gun._numberOfMagazinesReloaded << "\n";
+        os << "Time spent loading cartridges into magazine: " << gun._spentLoadingCartridgesIntoMagazine << " seconds\n";
+        os << "Time spent shooting: " << gun._spentShooting << " seconds\n";
+        os << "Subsonic patrons fired: " << gun._subsonicNumber << "\n";
+        os << "Supersonic patrons fired: " << gun._supersonicNumber << "\n";
+        os << "Tracing patrons fired: " << gun._tracingNumber << "\n";
+        return os;
+    }
 };
 
 #endif // GUN_H
