@@ -2,11 +2,11 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-HEADERS = Gun.h Magazine.h Patron.h Constants.h SubsonicPatron.h SupersonicPatron.h TracingPatron.h
+HEADERS = Gun.h Magazine.h Patron.h Patronbox.h Constants.h SubsonicPatron.h SupersonicPatron.h TracingPatron.h
 
-SRCS = main.cpp Magazine.cpp Patron.cpp SubsonicPatron.cpp SupersonicPatron.cpp TracingPatron.cpp
+SRCS = main.cpp Gun.cpp Magazine.cpp Patron.cpp SubsonicPatron.cpp SupersonicPatron.cpp TracingPatron.cpp
 
-OBJS = main.o Magazine.o Patron.o SubsonicPatron.o SupersonicPatron.o TracingPatron.o
+OBJS = main.o Gun.o Magazine.o Patron.o SubsonicPatron.o SupersonicPatron.o TracingPatron.o
 
 TARGET = main
 

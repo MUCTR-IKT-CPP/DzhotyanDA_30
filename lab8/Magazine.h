@@ -21,11 +21,34 @@ private:
 public:
     std::queue<Patron*> GetMagazine();
 
+    bool IsEmpty();
+
     int GetCapacity();
+
+    int GetSize();
 
     Patron* GetPatron();
 
     void AddPatron(Patron* p);
+
+    static Patron* GeneratePatron()
+    {
+        int x = rand() % AVALAIBLE_PATRONS_COUNT;
+
+        if (_avalaibleTypesPatrons[x] == "Subsonic") {
+            return new SubsonicPatron();
+        }
+
+        if (_avalaibleTypesPatrons[x] == "Supersonic") {
+            return new SupersonicPatron();
+        }
+
+        if (_avalaibleTypesPatrons[x] == "Tracing") {
+            return new TracingPatron();
+        }
+
+        return nullptr;
+    }
 
     static Patron** GeneratePatrons() 
     {

@@ -12,13 +12,17 @@ private:
 public:
     Gun(Patron** patrons) {
         _magazine = Magazine();
-        Reload(patrons);
+        Reload();
         _gunReloadedFirstTime = true;
     }
 
     void Shoot();
 
-    void Reload(Patron** arr);
+    //void Reload(Patron** arr);
+
+    void Reload();
+
+    void SimulatingShootingProcess();
 };
 
 #endif // GUN_H
