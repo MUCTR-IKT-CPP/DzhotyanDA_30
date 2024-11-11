@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-HEADERS = NaturalNumberDivisors.h
+HEADERS = NaturalNumberDivisors.h PrintGeneratedObjects.h Constants.h
 
 SRCS = main.cpp NaturalNumberDivisors.cpp
 
