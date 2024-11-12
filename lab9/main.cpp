@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <time.h>
 #include "NaturalNumberDivisors.h"
@@ -65,6 +64,25 @@ int handleMenu()
                 cout << "Среднее арифметическое для " << nnds[i] << " равно " << nnds[i].GetAverageOfTheDivisors() << endl;
             }
             break;
+        case 5:
+            {
+                int a, b;
+                
+                cout << "Введите первое число: ";
+                cin >> a;
+
+                cout << "Введите второе число: ";
+                cin >> b;
+
+                for (int i = 0; i < N; i++)
+                {
+                    cout << "Наибольший общий делитель для чисел " << a << " и " << b << ": " 
+                    << nnds[i].BindFindMaxCommonDivisorForTwoNumbers(a, b) << "(Bind) "
+                    << nnds[i].LambdaFindMaxCommonDivisorForTwoNumbers(a, b) << "(Lambda)"
+                    << " " << nnds[i] << endl;
+                }
+            }
+            break;
         case 0:
             return 0;
         default:
@@ -77,12 +95,6 @@ int main()
 {
     srand(time(NULL));
 
-    /*NaturalNumberDivisors nnd = NaturalNumberDivisors(16);
-    vector<int> result = nnd.GetDivisors();
-    for (auto item: result)
-    {
-        cout << item << endl;
-    }*/
     handleMenu();
     
     return 0;

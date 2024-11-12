@@ -19,6 +19,8 @@ public:
 
     int BindFindMaxCommonDivisorForTwoNumbers(int a, int b);
 
+    int LambdaFindMaxCommonDivisorForTwoNumbers(int a, int b);
+
     static int CountNumberGeneratedNumbersThatHaveDivisorConsole(int divisor);
 
     /**

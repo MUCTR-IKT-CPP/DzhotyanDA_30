@@ -118,6 +118,8 @@ int NaturalNumberDivisors::FindMaxCommonDivisorForTwoNumbers(int a, int b)
             return divisors[i];
         }
     }
+
+    return 1;
 }
 
 /**
@@ -130,7 +132,36 @@ int NaturalNumberDivisors::FindMaxCommonDivisorForTwoNumbers(int a, int b)
  */
 int NaturalNumberDivisors::BindFindMaxCommonDivisorForTwoNumbers(int a, int b)
 {
-    auto bind_find_common_divisor = std::bind(FindMaxCommonDivisorForTwoNumbers, a, std::placeholders::_1);
+    auto bind_find_common_divisor = std::bind(&NaturalNumberDivisors::FindMaxCommonDivisorForTwoNumbers, this, a, std::placeholders::_1);
 
-    return bind_find_common_divisor(b);
+    int result = bind_find_common_divisor(b);
+    
+    return result;
+}
+
+/**
+ * Нахождение наибольшего общего делителя для двух чисел через лямбда выражение
+ * 
+ * @param  int  первое число
+ * @param  int  второе число
+ * 
+ * @return  int  наибольший общий делитель
+ */
+int NaturalNumberDivisors::LambdaFindMaxCommonDivisorForTwoNumbers(int a, int b)
+{
+    std::vector<int> divisors;
+    std::copy(_divisors.begin(), _divisors.end(), std::back_inserter(divisors));
+
+    std::sort(divisors.begin(), divisors.end());
+
+    auto find_gcd = [&](int x, int y) -> int {
+        for (auto it = divisors.rbegin(); it != divisors.rend(); ++it) {
+            if (x % *it == 0 && y % *it == 0) {
+                return *it;
+            }
+        }
+        return 1;
+    };
+
+    return find_gcd(a, b);
 }
