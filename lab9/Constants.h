@@ -1,14 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-//// NATURAL_NUMBER_DIVISORS ////
-
-const int COUNT_GENERATED_NUMBERS = 100;
-
-const int MIN_GENERATED_NUMBER = 1;
-
-const int MAX_GENERATED_NUMBER = 100;
-
 //// DIVISOR ////
 
 const int MIN_DIVISOR_VALUE = 1;

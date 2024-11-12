@@ -54,7 +54,18 @@ int handleMenu()
                 int divisor;
                 cout << "Введите делитель: ";
                 cin >> divisor;
-                int count = NaturalNumberDivisors::CountNumberGeneratedNumbersThatHaveDivisorConsole(divisor);
+                
+                int count = 0;
+
+                for (int i = 0; i < N; i++)
+                {
+                    if (nnds[i].ContainsDivisor(divisor))
+                    {
+                        cout << nnds[i] << endl;
+                        count++;
+                    }
+                }
+
                 cout << "Число сгенерированных чисел: " << count << endl;
             }
             break;

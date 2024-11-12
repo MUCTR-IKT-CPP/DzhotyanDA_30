@@ -60,24 +60,23 @@ std::vector<int> NaturalNumberDivisors::GetDivisors()
 }
 
 /**
- * Подсчёт количества сгенерированных чисел, у которых есть указанный в консоли делитель
+ * Проверка того, что у числа есть указанный в консоли делитель
  * 
  * @param  int  делитель
  * 
- * @return int  количество сгенерированных чисел
+ * @return bool  логическое значение есть ли делитель у числа
  */
-int NaturalNumberDivisors::CountNumberGeneratedNumbersThatHaveDivisorConsole(int divisor)
+bool NaturalNumberDivisors::ContainsDivisor(int divisor)
 {
-    std::vector<int> nums(COUNT_GENERATED_NUMBERS);
-
-    for (int &num: nums)
+    for (size_t i = 0; i < _divisors.size(); i++)
     {
-        num = MIN_GENERATED_NUMBER + std::rand() % MAX_GENERATED_NUMBER;
+        if (_divisors[i] == divisor)
+        {
+            return true;
+        }
     }
 
-    int count_div = std::count_if(nums.begin(), nums.end(), [divisor](int i) { return i % divisor == 0; });
-
-    return count_div;
+    return false;
 }
 
 /**

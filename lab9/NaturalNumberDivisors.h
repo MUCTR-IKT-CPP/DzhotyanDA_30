@@ -21,7 +21,7 @@ public:
 
     int LambdaFindMaxCommonDivisorForTwoNumbers(int a, int b);
 
-    static int CountNumberGeneratedNumbersThatHaveDivisorConsole(int divisor);
+    bool ContainsDivisor(int divisor);
 
     /**
      * Перегрузка оператора вывода в поток через дружественную функцию
