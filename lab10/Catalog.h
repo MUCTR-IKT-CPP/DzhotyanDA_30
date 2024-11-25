@@ -1,22 +1,47 @@
 #ifndef CATALOG_H
 #define CATALOG_H
 
-#include <vector>
+#include <iostream>
+#include <map>
+#include <string>
 #include "Table.h"
 
 class Catalog
 {
 private:
-    std::vector<Table> _tables;
+    std::map<std::string, Table> _tables;
 public:
     Catalog() = default;
 
-    void AddTable(const Table& table)
+    void AddTable(const std::string name, const Table& table)
     {
-        _tables.push_back(table);
+        if (_tables.count(name))
+        {
+            std::string choice;
+            std::cout << "Таблица с таким названием уже существует! Хотите заменить ее?\n" << std::endl;
+            std::cin >> choice;
+
+            if (choice == "Да")
+            {
+                _tables[name] = table;
+            }
+            else if (choice != "Да")
+            {
+                return;
+            }
+        }
+        else
+        {
+            _tables[name] = table;
+        }
     }
 
-    const std::vector<Table>& GetTables() const
+    Table& GetTableByName(std::string name)
+    {
+        return _tables[name];
+    }
+
+    const std::map<std::string, Table>& GetTables() const
     {
         return _tables;
     }
