@@ -1,0 +1,14 @@
+C:\Users\david\source\repos\lab2_algo\bin\Debug\net8.0\lab2_algo.exe
+C:\Users\david\source\repos\lab2_algo\bin\Debug\net8.0\lab2_algo.deps.json
+C:\Users\david\source\repos\lab2_algo\bin\Debug\net8.0\lab2_algo.runtimeconfig.json
+C:\Users\david\source\repos\lab2_algo\bin\Debug\net8.0\lab2_algo.dll
+C:\Users\david\source\repos\lab2_algo\bin\Debug\net8.0\lab2_algo.pdb
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.AssemblyInfoInputs.cache
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.AssemblyInfo.cs
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.dll
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\refint\lab2_algo.dll
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.pdb
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\lab2_algo.genruntimeconfig.cache
+C:\Users\david\source\repos\lab2_algo\obj\Debug\net8.0\ref\lab2_algo.dll
