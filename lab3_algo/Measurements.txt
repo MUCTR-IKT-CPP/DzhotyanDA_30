@@ -1,0 +1,12 @@
+Elapsed Ticks:
+Push
+
+QueueSinglyLinkedList 628 1 1 0 0 1 1 1 37 1 1 0 1 0 1 1 0 1 1 1
+QueueTwoStacks 894 0 0 1 0 0 0 1 1 0 0 0 0 1 1 1 1 0 0 1
+Pop
+QueueSinglyLinkedList 7 0 1 0 1 1 1 1 1 1 1 1 0 1 1 0 1 0 1 1QueueTwoStacks
+ 5776 0 1 0 1 1 0 1 1 1 0 1 0 1 1 0 1 0 1 1
+Memory in bytes:
+
+QueueSinglyLinkedList 0 0 0 0 0 0 0 0 8224 0 0 0 0 0 0 0 0 0 8224 0
+QueueTwoStacks 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
