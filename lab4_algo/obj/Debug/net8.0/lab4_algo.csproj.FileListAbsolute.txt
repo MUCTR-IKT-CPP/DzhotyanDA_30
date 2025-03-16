@@ -1,0 +1,14 @@
+C:\Users\david\source\repos\lab4_algo\bin\Debug\net8.0\lab4_algo.exe
+C:\Users\david\source\repos\lab4_algo\bin\Debug\net8.0\lab4_algo.deps.json
+C:\Users\david\source\repos\lab4_algo\bin\Debug\net8.0\lab4_algo.runtimeconfig.json
+C:\Users\david\source\repos\lab4_algo\bin\Debug\net8.0\lab4_algo.dll
+C:\Users\david\source\repos\lab4_algo\bin\Debug\net8.0\lab4_algo.pdb
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.AssemblyInfoInputs.cache
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.AssemblyInfo.cs
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.dll
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\refint\lab4_algo.dll
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.pdb
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\lab4_algo.genruntimeconfig.cache
+C:\Users\david\source\repos\lab4_algo\obj\Debug\net8.0\ref\lab4_algo.dll
