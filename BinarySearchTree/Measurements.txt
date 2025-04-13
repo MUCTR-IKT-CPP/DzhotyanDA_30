@@ -1,0 +1,95 @@
+Test 1
+Size: 2048
+Random part
+BinaryTree Insert Random: 1,409280 ms
+AVLTree Insert Random: 4,670260 ms
+BinaryTree Search Random: 0,000820 ms
+AVLTree Search Random: 0,000641 ms
+Array Search Random: 0,000427 ms
+BinaryTree Delete Random: 0,000895 ms
+AVLTree Delete Random: 0,001947 ms
+Sorted part
+BinaryTree Insert Sorted: 74,723180 ms
+AVLTree Insert Sorted: 2,731090 ms
+BinaryTree Search Sorted: 0,030030 ms
+AVLTree Search Sorted: 0,000504 ms
+Array Search Sorted: 0,000418 ms
+BinaryTree Delete Sorted: 0,029924 ms
+AVLTree Delete Sorted: 0,001357 ms
+-------------------------------------------------
+Test 2
+Size: 4096
+Random part
+BinaryTree Insert Random: 1,676435 ms
+AVLTree Insert Random: 4,035010 ms
+BinaryTree Search Random: 0,000619 ms
+AVLTree Search Random: 0,000470 ms
+Array Search Random: 0,000380 ms
+BinaryTree Delete Random: 0,000667 ms
+AVLTree Delete Random: 0,001437 ms
+Sorted part
+BinaryTree Insert Sorted: 138,599020 ms
+AVLTree Insert Sorted: 3,723695 ms
+BinaryTree Search Sorted: 0,035029 ms
+AVLTree Search Sorted: 0,000468 ms
+Array Search Sorted: 0,000381 ms
+BinaryTree Delete Sorted: 0,034275 ms
+AVLTree Delete Sorted: 0,001103 ms
+-------------------------------------------------
+Test 3
+Size: 8192
+Random part
+BinaryTree Insert Random: 2,225447 ms
+AVLTree Insert Random: 5,221650 ms
+BinaryTree Search Random: 0,000899 ms
+AVLTree Search Random: 0,000460 ms
+Array Search Random: 0,000393 ms
+BinaryTree Delete Random: 0,000655 ms
+AVLTree Delete Random: 0,001335 ms
+Sorted part
+BinaryTree Insert Sorted: 321,998923 ms
+AVLTree Insert Sorted: 4,375437 ms
+BinaryTree Search Sorted: 0,048462 ms
+AVLTree Search Sorted: 0,000436 ms
+Array Search Sorted: 0,000374 ms
+BinaryTree Delete Sorted: 0,053291 ms
+AVLTree Delete Sorted: 0,001229 ms
+-------------------------------------------------
+Test 4
+Size: 16384
+Random part
+BinaryTree Insert Random: 4,238605 ms
+AVLTree Insert Random: 8,930343 ms
+BinaryTree Search Random: 0,000874 ms
+AVLTree Search Random: 0,000461 ms
+Array Search Random: 0,000556 ms
+BinaryTree Delete Random: 0,000686 ms
+AVLTree Delete Random: 0,001333 ms
+Sorted part
+BinaryTree Insert Sorted: 1286,479275 ms
+AVLTree Insert Sorted: 9,027660 ms
+BinaryTree Search Sorted: 0,094207 ms
+AVLTree Search Sorted: 0,000772 ms
+Array Search Sorted: 0,000624 ms
+BinaryTree Delete Sorted: 0,126213 ms
+AVLTree Delete Sorted: 0,001291 ms
+-------------------------------------------------
+Test 5
+Size: 32768
+Random part
+BinaryTree Insert Random: 8,540096 ms
+AVLTree Insert Random: 16,411128 ms
+BinaryTree Search Random: 0,000964 ms
+AVLTree Search Random: 0,000546 ms
+Array Search Random: 0,000881 ms
+BinaryTree Delete Random: 0,000758 ms
+AVLTree Delete Random: 0,001516 ms
+Sorted part
+BinaryTree Insert Sorted: 7559,318500 ms
+AVLTree Insert Sorted: 22,472470 ms
+BinaryTree Search Sorted: 0,237453 ms
+AVLTree Search Sorted: 0,000824 ms
+Array Search Sorted: 0,001201 ms
+BinaryTree Delete Sorted: 0,363878 ms
+AVLTree Delete Sorted: 0,001727 ms
+-------------------------------------------------
